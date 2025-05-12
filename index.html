@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R6 Operator Wheel</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        #result {
+            font-size: 2em;
+            color: darkgreen;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        .toggle-block {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .toggle-label-left,
+        .toggle-label-right {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: bold;
+        }
+
+        .toggle-label-left {
+            right: 55%
+        }
+
+        .toggle-label-right {
+            left: 55%;
+        }
+
+        .toggle {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #000dfffd;
+            transition: 0.4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #ff0000;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+    </style>
+</head>
+<body>
+    <h1>R6 Operator Wheel</h1>
+    
+    <div class="toggle-block">
+        <span class="toggle-label-left">Defenders</span>
+        
+        <label class="toggle">
+            <input type="checkbox" id="modeToggle">
+            <span class="slider"></span>
+        </label>
+        
+        <span class="toggle-label-right">Attackers</span>
+    </div>
+
+    <button id="spinButton">Spin the Wheel!</button>
+    <div id="result"></div>
+
+    <script>
+        const attackers = [
+            "Striker", "Sledge", "Thatcher", "Ash", "Thermite",
+            "Montagne", "Twitch", "Blitz", "IQ", "Fuze", "Glaz",
+            "Buck", "Blackbeard", "Capitao", "Hibana", "Jackal",
+            "Ying", "Zofia", "Dokkaebi", "Lion", "Finka", "Maverick",
+            "Nomad", "Gridlock", "Nokk", "Amaru", "Kali", "Iana",
+            "Ace", "Zero", "Flores", "Osa", "Sens", "Grim", "Brava",
+            "Ram", "Deimos", "Rauora"
+        ];
+        const defenders = [
+            "Sentry", "Smoke", "Mute", "Castle", "Pulse", "Doc",
+            "Rook", "Bandit", "Jäger", "Tachanka", "Kapkan",
+            "Frost", "Valkyrie", "Caveira", "Echo", "Mira",
+            "Lesion", "Ela", "Vigil", "Alibi", "Maestro", "Clash",
+            "Kaid", "Mozzie", "Warden", "Goyo", "Wamai", "Oryx",
+            "Melusi", "Aruni", "Thunderbird", "Thorn", "Azami",
+            "Solis", "Fenrir", "Tubarao", "Skopos"
+        ];
+
+        document.getElementById('spinButton').addEventListener('click', function() {
+            const isAttackerMode = document.getElementById('modeToggle').checked;
+            const operators = isAttackerMode ? attackers : defenders;
+
+            const randomIndex = Math.floor(Math.random() * operators.length);
+            const selectedOperator = operators[randomIndex];
+            document.getElementById('result').innerText = `You got: ${selectedOperator}`;
+        });
+    </script>
+</html>
