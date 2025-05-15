@@ -4,139 +4,334 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>R6 Operator Wheel</title>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding-top: 50px;
-        }
-
-        #result {
-            font-size: 2em;
-            color: darkgreen;
-            margin-top: 20px;
-        }
-
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-        }
-
-        .toggle-block {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .toggle-label-left,
-        .toggle-label-right {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-weight: bold;
-        }
-
-        .toggle-label-left {
-            right: 55%
-        }
-
-        .toggle-label-right {
-            left: 55%;
-        }
-
-        .toggle {
-            position: relative;
-            display: inline-block;
-            width: 60px;
-            height: 34px;
-        }
-
-        .toggle input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #000dfffd;
-            transition: 0.4s;
-            border-radius: 34px;
-        }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 26px;
-            width: 26px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            transition: 0.4s;
-            border-radius: 50%;
-        }
-
-        input:checked + .slider {
-            background-color: #ff0000;
-        }
-
-        input:checked + .slider:before {
-            transform: translateX(26px);
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>R6 Operator Wheel</h1>
     
     <div class="toggle-block">
-        <span class="toggle-label-left">Defenders</span>
+        <span class="toggle-label">Defenders</span>
         
         <label class="toggle">
             <input type="checkbox" id="modeToggle">
             <span class="slider"></span>
         </label>
         
-        <span class="toggle-label-right">Attackers</span>
+        <span class="toggle-label">Attackers</span>
     </div>
 
-    <button id="spinButton">Spin the Wheel!</button>
+    <div class="icon-grid" id="setAttackers">
+        <div class="icon-wrapper">
+            <img src="icons/striker.svg" alt="Striker" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/sledge.svg" alt="Sledge" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/thatcher.svg" alt="Thatcher" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/ash.svg" alt="Ash" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/thermite.svg" alt="Thermite" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/montagne.svg" alt="Montagne" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/twitch.svg" alt="Twitch" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/blitz.svg" alt="Blitz" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/iq.svg" alt="IQ" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/fuze.svg" alt="Fuze" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/glaz.svg" alt="Glaz" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/buck.svg" alt="Buck" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/blackbeard.svg" alt="Blackbeard" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/capitao.svg" alt="Capitao" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/hibana.svg" alt="Hibana" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/jackal.svg" alt="Jackal" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/ying.svg" alt="Ying" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/zofia.svg" alt="Zofia" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/dokkaebi.svg" alt="Dokkaebi" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/lion.svg" alt="Lion" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/finka.svg" alt="Finka" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/maverick.svg" alt="Maverick" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/nomad.svg" alt="Nomad" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/gridlock.svg" alt="Gridlock" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/nokk.svg" alt="Nokk" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/amaru.svg" alt="Amaru" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/kali.svg" alt="Kali" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/iana.svg" alt="Iana" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/ace.svg" alt="Ace" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/zero.svg" alt="Zero" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/flores.svg" alt="Flores" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/osa.svg" alt="Osa" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/sens.svg" alt="Sens" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/grim.svg" alt="Grim" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/brava.svg" alt="Brava" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/ram.svg" alt="Ram" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/deimos.svg" alt="Deimos" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/rauora.svg" alt="Rauora" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+    </div>
+
+    <div class="icon-grid" id="setDefenders">
+        <div class="icon-wrapper">
+            <img src="icons/sentry.svg" alt="Sentry" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/mute.svg" alt="Mute" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/smoke.svg" alt="Smoke" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/castle.svg" alt="Castle" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/pulse.svg" alt="Pulse" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/doc.svg" alt="Doc" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/rook.svg" alt="Rook" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/jager.svg" alt="Jager" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/bandit.svg" alt="Bandit" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/tachanka.svg" alt="Tachanka" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/kapkan.svg" alt="Kapkan" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/frost.svg" alt="Frost" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/valkyrie.svg" alt="Valkyrie" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/caveira.svg" alt="Caveira" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/echo.svg" alt="Echo" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/mira.svg" alt="Mira" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/lesion.svg" alt="Lesion" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/ela.svg" alt="Ela" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/vigil.svg" alt="Vigil" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/maestro.svg" alt="Maestro" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/alibi.svg" alt="Alibi" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/clash.svg" alt="Clash" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/kaid.svg" alt="Kaid" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/mozzie.svg" alt="Mozzie" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/warden.svg" alt="Warden" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/goyo.svg" alt="Goyo" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/wamai.svg" alt="Wamai" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/oryx.svg" alt="Oryx" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/melusi.svg" alt="Melusi" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/aruni.svg" alt="Aruni" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/thunderbird.svg" alt="Thunderbird" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/thorn.svg" alt="Thorn" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/azami.svg" alt="Azami" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/solis.svg" alt="Solis" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/fenrir.svg" alt="Fenrir" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/tubarao.svg" alt="Tubarao" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+        <div class="icon-wrapper">
+            <img src="icons/skopos.svg" alt="Skopos" class="icon">
+            <div class="cross-overlay"></div>
+        </div>
+    </div>
+
+    <div class="button-row">
+        <button id="spinButton" onclick="spinWheel()">Spin the Wheel</button>
+        <button id="resetButton" onclick="resetOps()">Reset</button>
+    </div>
+
     <div id="result"></div>
 
-    <script>
-        const attackers = [
-            "Striker", "Sledge", "Thatcher", "Ash", "Thermite",
-            "Montagne", "Twitch", "Blitz", "IQ", "Fuze", "Glaz",
-            "Buck", "Blackbeard", "Capitao", "Hibana", "Jackal",
-            "Ying", "Zofia", "Dokkaebi", "Lion", "Finka", "Maverick",
-            "Nomad", "Gridlock", "Nokk", "Amaru", "Kali", "Iana",
-            "Ace", "Zero", "Flores", "Osa", "Sens", "Grim", "Brava",
-            "Ram", "Deimos", "Rauora"
-        ];
-        const defenders = [
-            "Sentry", "Smoke", "Mute", "Castle", "Pulse", "Doc",
-            "Rook", "Bandit", "Jäger", "Tachanka", "Kapkan",
-            "Frost", "Valkyrie", "Caveira", "Echo", "Mira",
-            "Lesion", "Ela", "Vigil", "Alibi", "Maestro", "Clash",
-            "Kaid", "Mozzie", "Warden", "Goyo", "Wamai", "Oryx",
-            "Melusi", "Aruni", "Thunderbird", "Thorn", "Azami",
-            "Solis", "Fenrir", "Tubarao", "Skopos"
-        ];
-
-        document.getElementById('spinButton').addEventListener('click', function() {
-            const isAttackerMode = document.getElementById('modeToggle').checked;
-            const operators = isAttackerMode ? attackers : defenders;
-
-            const randomIndex = Math.floor(Math.random() * operators.length);
-            const selectedOperator = operators[randomIndex];
-            document.getElementById('result').innerText = `You got: ${selectedOperator}`;
-        });
-    </script>
+    <script src="script.js"></script>
 </html>

@@ -1,0 +1,154 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 50px;
+}
+
+#result {
+    font-size: 2em;
+    color: darkgreen;
+    margin-top: 20px;
+}
+
+/* Button Styles */
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Toggle Switch Styles */
+.toggle-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.toggle-label {
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000dfffd;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #ff0000;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Icon Grid Styles */
+.icon-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 20px;
+    width: 95%;
+    max-width: 500px;
+    margin: 0 auto;
+    justify-items: center;
+}
+
+.icon-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.icon {
+    width: 100%;
+    height: 100%;
+    transition: 0.2s ease;
+}
+
+.icon-wrapper.excluded .icon {
+    opacity: 0.3;
+    filter: grayscale(100%);
+}
+
+.cross-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    display: none;
+}
+
+.icon-wrapper.excluded .cross-overlay {
+    display: block;
+}
+
+.cross-overlay::before,
+.cross-overlay::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    background-color: red;
+    top: 0;
+    left: 50%;
+    transform-origin: center;
+}
+
+.cross-overlay::before {
+    transform: rotate(45deg);
+}
+
+.cross-overlay::after {
+    transform: rotate(-45deg);
+}
+
+/* Class given for the untoggled icons */
+.hidden {
+    display: none;
+}
